@@ -1,0 +1,6 @@
+pytchat
+Flask
+Flask-Cache
+Flask-Cors
+json
+jsonify
