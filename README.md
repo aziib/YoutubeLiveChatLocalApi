@@ -25,6 +25,6 @@ pip install -r requirements.txt
 ```python
     chat = pytchat.create(video_id="4xDzrJKXOOY") \\<--- change this to your youtube video link id, it's unique numbers & letters after https://www.youtube.com/watch?v=
 ```
-5. Run fetch.bat, it will fetch the live comments and saved it as json file named chat_saved.json. do not closed the bat, don't open the json file or deleted it until you want to end your stream. (only delete the chat_saved.json file if you want to start new live stream)
+5. Run fetch.bat, it will fetch the live comments and saved it as json file named chat_saved.json. do not close the bat, don't open the json file or deleted it until you want to end your stream. (only delete the chat_saved.json file if you want to start new live stream)
   
 6. Run api.bat, it will create local api at port 5006 and then you can get the api calls by type http://127.0.0.1:5006/chat
