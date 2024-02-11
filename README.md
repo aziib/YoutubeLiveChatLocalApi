@@ -2,6 +2,8 @@
 make your own local api and fetching from Youtube Live chat
 
 ## Description
+this is for using my sillytavern ai live chat extension [https://github.com/aziib/Extension-LiveChat](https://github.com/aziib/Extension-LiveChat)
+
 if you like my code and used it, please support me on ko-fi [https://ko-fi.com/megaaziib](https://ko-fi.com/megaaziib)
 
 your support help me improved on this project.
