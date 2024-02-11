@@ -11,8 +11,11 @@ your support help me improved on this project.
 ☢ You will need to take full responsibility for your action ☢
 
 ## Requirements
-Python: [https://www.python.org/downloads/](https://www.python.org/downloads/) 
+Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+
 i'm using python 3.11, don't know if other version will work
+
+make sure you tick check add to path when installing the python
 
 ## Install Manually
 1. Setup virtual environment
