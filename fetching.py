@@ -1,11 +1,17 @@
 import pytchat
 import json
 import time
+import os
 
 # Create a function to fetch and save chat messages
 def save_chat_messages():
     # Create pytchat instance with the desired video ID
-    chat = pytchat.create(video_id="aOu7othJASo")
+    chat = pytchat.create(video_id="Xa91QWpKDcU")
+    
+    # Check if 'chat_saved.json' exists and delete it if it does (only once at the start)
+    if os.path.exists('chat_saved.json'):
+        os.remove('chat_saved.json')
+        print("Deleted existing chat_saved.json")
 
     while True:
         try:
@@ -14,12 +20,19 @@ def save_chat_messages():
                 # Initialize an empty list to store chat messages for this iteration
                 chat_messages = []
 
-                for c in chat.get().sync_items():
-                    # Append chat message details to the list
-                    chat_messages.append({
-                        "author": c.author.name,
-                        "message": c.message
-                    })
+                # Fetch chat messages with retry mechanism
+                while True:
+                    try:
+                        for c in chat.get().sync_items():
+                            # Append chat message details to the list
+                            chat_messages.append({
+                                "author": c.author.name,
+                                "message": c.message
+                            })
+                        break
+                    except Exception as fetch_error:
+                        print(f"Error fetching chat messages: {fetch_error}. Retrying in 1 second...")
+                        time.sleep(1)
 
                 # Load existing chat messages from JSON file if it exists
                 try:
@@ -39,8 +52,8 @@ def save_chat_messages():
                 except Exception as save_error:
                     print(f"Error saving chat messages: {save_error}")
 
-                # Sleep for 3 seconds
-                time.sleep(3)
+                # Sleep for 4 seconds
+                time.sleep(4)
 
         except Exception as e:
             print(f"An error occurred: {e}. Restarting...")
