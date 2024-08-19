@@ -2,5 +2,6 @@ pytchat
 Flask
 Flask-Cache
 Flask-Cors
+Flask-Caching
 json
 jsonify
