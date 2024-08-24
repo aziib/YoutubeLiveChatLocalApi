@@ -6,7 +6,7 @@ import os
 # Create a function to fetch and save chat messages
 def save_chat_messages():
     # Create pytchat instance with the desired video ID
-    chat = pytchat.create(video_id="Xa91QWpKDcU")
+    chat = pytchat.create(video_id="Gp4aaIzY5P0")
     
     # Check if 'chat_saved.json' exists and delete it if it does (only once at the start)
     if os.path.exists('chat_saved.json'):
@@ -24,13 +24,15 @@ def save_chat_messages():
                 while True:
                     try:
                         for c in chat.get().sync_items():
-                            # Check if the message contains the keyword "!chat" or is a Super Chat
-                            if "!chat" in c.message or c.type == "superChat":
+                            # Check if the message contains the keyword "!chat"
+                            if "!chat" in c.message:
+                                # Remove "!chat" from the message before saving
+                                cleaned_message = c.message.replace("!chat", "").strip()
+                                
                                 # Append chat message details to the list
                                 chat_messages.append({
                                     "author": c.author.name,
-                                    "message": c.message,
-                                    "superchat": c.type == "superChat"  # Add a flag for Super Chat
+                                    "message": cleaned_message
                                 })
                         break
                     except Exception as fetch_error:
