@@ -24,11 +24,14 @@ def save_chat_messages():
                 while True:
                     try:
                         for c in chat.get().sync_items():
-                            # Append chat message details to the list
-                            chat_messages.append({
-                                "author": c.author.name,
-                                "message": c.message
-                            })
+                            # Check if the message contains the keyword "!chat" or is a Super Chat
+                            if "!chat" in c.message or c.type == "superChat":
+                                # Append chat message details to the list
+                                chat_messages.append({
+                                    "author": c.author.name,
+                                    "message": c.message,
+                                    "superchat": c.type == "superChat"  # Add a flag for Super Chat
+                                })
                         break
                     except Exception as fetch_error:
                         print(f"Error fetching chat messages: {fetch_error}. Retrying in 1 second...")
