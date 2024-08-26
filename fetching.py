@@ -24,10 +24,10 @@ def save_chat_messages():
                 while True:
                     try:
                         for c in chat.get().sync_items():
-                            # Check if the message contains the keyword "!chat"
-                            if "!chat" in c.message:
-                                # Remove "!chat" from the message before saving
-                                cleaned_message = c.message.replace("!chat", "").strip()
+                            # Check if the message contains the keyword "!c"
+                            if "!c" in c.message:
+                                # Remove "!c" from the message before saving
+                                cleaned_message = c.message.replace("!c", "").strip()
                                 
                                 # Append chat message details to the list
                                 chat_messages.append({
