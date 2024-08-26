@@ -1,7 +1,7 @@
 # Youtube Live Chat Local Api
 make your own local api and fetching from Youtube Live chat
 
-use !chat to talk with the ai chatbot in the comments
+use !c to talk with the ai chatbot in the youtube live comments
 
 ## Description
 this is for using my sillytavern ai live chat extension [https://github.com/aziib/Extension-LiveChat](https://github.com/aziib/Extension-LiveChat)
